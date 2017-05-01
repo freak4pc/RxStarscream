@@ -1,7 +1,7 @@
 os: osx
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.2
 
 script: 
   - set -o pipefail
-  - xcodebuild build-for-testing test-without-building -project RxStarscream.xcodeproj -scheme RxStarscream -sdk iphonesimulator -destination "name=iPhone SE" | xcpretty -c
+  - xcodebuild -workspace 'RxStarscream.xcworkspace' -scheme 'RxStarscream' -configuration 'Debug' -sdk iphonesimulator -destination 'name=iPhone 6s' build test | xcpretty -c
