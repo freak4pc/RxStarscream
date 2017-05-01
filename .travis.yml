@@ -1,0 +1,7 @@
+os: osx
+language: objective-c
+osx_image: xcode8.2
+
+script: 
+  - set -o pipefail
+  - xcodebuild -workspace 'RxStarscream.xcworkspace' -scheme 'RxStarscream' -configuration 'Debug' -sdk iphonesimulator -destination 'name=iPhone 6s' build test | xcpretty -c
